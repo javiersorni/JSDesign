@@ -1,0 +1,162 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.hero,
+.grid {
+    flex: 1;
+}
+
+body {
+    background: #f4f1ea;
+    /* beige cálido suave */
+    color: #2f2f2f;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 50px;
+    background: #e8dfd1;
+    border-bottom: 1px solid #ddd3c2;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 38px;
+    height: 38px;
+}
+
+.logo span {
+    font-weight: 600;
+    color: #3a3a3a;
+}
+
+.nav a {
+    margin-left: 18px;
+    text-decoration: none;
+    color: #4a4a4a;
+    transition: 0.2s;
+}
+
+.nav a:hover {
+    color: #6b7a8f;
+}
+
+/* ================= HERO ================= */
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 12px;
+    color: #2f2f2f;
+}
+
+.hero p {
+    color: #5a5a5a;
+    margin-bottom: 20px;
+}
+
+/* ================= BUTTON ================= */
+.btn-primary {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #7a9e9f;
+    /* azul suave calmado */
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.2s;
+    border: none;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    /* sin hover agresivo */
+}
+
+/* ================= GRID ================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    padding: 40px 60px;
+}
+
+.card {
+    background: #fffaf3;
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid #e6dccd;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+/* ================= FORM ================= */
+.buy-container {
+    max-width: 550px;
+    margin: 60px auto;
+    background: #fffaf3;
+    padding: 35px;
+    border-radius: 16px;
+    border: 1px solid #e6dccd;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input,
+select,
+textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #d8cfc0;
+    outline: none;
+    background: #fffdf9;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: auto;
+    background: #e8dfd1;
+    border-top: 1px solid #ddd3c2;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #4a4a4a;
+}

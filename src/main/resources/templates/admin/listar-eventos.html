@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Eventos</title>
+
+    <!-- CSS GLOBAL -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <div class="sidebar-title">
+            🍽️ Cena Popular
+        </div>
+
+        <a th:href="@{/admin/dashboard}">Dashboard</a>
+        <a th:href="@{/admin/eventos/nuevo}">Crear Evento</a>
+        <a th:href="@{/admin/eventos}">Listar Eventos</a>
+        <!-- ESPACIADOR -->
+        <div style="margin-top: auto;"></div>
+
+        <!-- LOGOUT ABAJO -->
+        <form th:action="@{/logout}" method="post" style="padding: 10px 20px;">
+            <button class="btn" style="width:100%;">
+                Cerrar sesión
+            </button>
+        </form>
+    </div>
+
+
+    </div>
+
+    <!-- MAIN -->
+    <div class="main-content">
+
+        <h1>Listado de Eventos</h1>
+
+        <div class="card">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Fecha</th>
+                        <th>Mesas</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr th:each="evento : ${eventos}">
+
+                        <td th:text="${evento.id}"></td>
+                        <td th:text="${evento.nombre}"></td>
+                        <td th:text="${evento.fechaEvento}"></td>
+                        <td th:text="${evento.cantidadMesas}"></td>
+
+                        <td class="acciones">
+
+                            <a class="btn" th:href="@{/admin/eventos/{id}(id=${evento.id})}">
+                                Ver
+                            </a>
+
+                            <a class="btn" th:href="@{/admin/eventos/editar/{id}(id=${evento.id})}">
+                                Editar
+                            </a>
+
+                            <form th:action="@{/admin/eventos/eliminar/{id}(id=${evento.id})}" method="post"
+                                style="display:inline;">
+
+                                <button class="btn" onclick="return confirm('¿Eliminar evento?')">
+                                    Eliminar
+                                </button>
+
+                            </form>
+
+                        </td>
+
+                    </tr>
+
+                    <tr th:if="${#lists.isEmpty(eventos)}">
+                        <td colspan="5" style="text-align:center;">
+                            No hay eventos creados
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

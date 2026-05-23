@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión Evento</title>
+
+    <!-- CSS GLOBAL -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <div class="sidebar-title">
+            🍽️ Cena Popular
+        </div>
+
+        <a th:href="@{/admin/dashboard}">Dashboard</a>
+        <a th:href="@{/admin/eventos/nuevo}">Crear Evento</a>
+        <a th:href="@{/admin/eventos}">Listar Eventos</a>
+        <!-- ESPACIADOR -->
+        <div style="margin-top: auto;"></div>
+
+        <!-- LOGOUT ABAJO -->
+        <form th:action="@{/logout}" method="post" style="padding: 10px 20px;">
+            <button class="btn" style="width:100%;">
+                Cerrar sesión
+            </button>
+        </form>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main-content">
+
+        <h1>Gestión del Evento</h1>
+
+        <!-- MENSAJES -->
+        <div th:if="${success}" class="alert alert-success">
+            <span th:text="${success}"></span>
+        </div>
+
+        <div th:if="${error}" class="alert alert-error">
+            <span th:text="${error}"></span>
+        </div>
+
+        <!-- INFO EVENTO -->
+        <div class="card">
+
+            <h2 th:text="${evento.nombre}"></h2>
+
+            <p><b>Fecha:</b> <span th:text="${evento.fechaEvento}"></span></p>
+            <p><b>Mesas:</b> <span th:text="${evento.cantidadMesas}"></span></p>
+
+        </div>
+
+        <!-- BOTÓN -->
+        <div class="card">
+
+            <a th:href="@{/admin/grupos/nuevo/{id}(id=${evento.id})}">
+                <button class="btn">Crear Grupo</button>
+            </a>
+
+        </div>
+
+        <!-- GRUPOS -->
+        <div class="card">
+
+            <h3>Grupos</h3>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Personas</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr th:each="grupo : ${grupos}">
+
+                        <td th:text="${grupo.nombreContacto}"></td>
+                        <td th:text="${grupo.numeroPersonas}"></td>
+
+                        <td class="acciones">
+
+                            <form th:action="@{/admin/grupos/asignar/{id}(id=${grupo.id})}" method="post">
+                                <button class="btn">Asignar mesa</button>
+                            </form>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- MESAS -->
+        <div class="card">
+
+            <h3>Mesas</h3>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Mesa</th>
+                        <th>Capacidad</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr th:each="mesa : ${mesas}">
+
+                        <td th:text="${mesa.numeroMesa}"></td>
+                        <td th:text="${mesa.capacidad}"></td>
+
+                        <td>
+                            <span th:if="${mesa.estado == 'LIBRE'}" class="estado-libre">
+                                LIBRE
+                            </span>
+
+                            <span th:if="${mesa.estado == 'OCUPADA'}" class="estado-ocupada">
+                                OCUPADA
+                            </span>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

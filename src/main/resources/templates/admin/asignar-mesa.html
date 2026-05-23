@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Asignar Mesa</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+    <!-- SIDEBAR (opcional si ya lo usas globalmente) -->
+    <div class="sidebar">
+
+        <div class="sidebar-title">
+            🍽️ Cena Popular
+        </div>
+
+        <a th:href="@{/admin/dashboard}">Dashboard</a>
+        <a th:href="@{/admin/eventos}">Eventos</a>
+        <a th:href="@{/admin/grupos}">Grupos</a>
+
+    </div>
+
+    <!-- MAIN -->
+    <div class="main-content">
+
+        <h1>Asignar Mesa</h1>
+
+        <div class="card">
+
+            <p>
+                Grupo:
+                <strong th:text="${grupo.nombreContacto}"></strong>
+            </p>
+
+            <p>
+                Personas:
+                <strong th:text="${grupo.numeroPersonas}"></strong>
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <form th:action="@{/admin/grupos/asignar/{id}(id=${grupo.id})}" method="post">
+
+                <!-- MESA -->
+                <label>Mesa disponible</label>
+
+                <select name="mesaId" required>
+                    <option th:each="mesa : ${mesas}"
+                            th:value="${mesa.id}"
+                            th:text="'Mesa ' + ${mesa.numeroMesa} + ' (Capacidad: ' + ${mesa.capacidad} + ')'">
+                    </option>
+                </select>
+
+                <!-- PERSONAS -->
+                <label>Personas a asignar</label>
+
+                <input type="number"
+                       name="personasAsignadas"
+                       th:value="${grupo.numeroPersonas}">
+
+                <button class="btn">
+                    Asignar mesa
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

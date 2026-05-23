@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Cena Popular</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body class="login-body">
+
+    <div class="login-container">
+
+        <div class="logo">🍽️</div>
+
+        <div class="title">Cena Popular</div>
+        <div class="subtitle">Panel de administración</div>
+
+        <!-- ERROR LOGIN -->
+        <div th:if="${param.error}" class="alert alert-error">
+            Usuario o contraseña incorrectos
+        </div>
+
+        <!-- LOGOUT -->
+        <div th:if="${param.logout}" class="alert alert-success">
+            Sesión cerrada correctamente
+        </div>
+
+        <form th:action="@{/login}" method="post">
+
+            <input type="text" name="username" class="form-control" placeholder="Usuario" required>
+
+            <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+
+            <button type="submit" class="btn">
+                Entrar al sistema
+            </button>
+
+        </form>
+
+        <!-- FOOTER EDITABLE -->
+        <div class="footer">
+
+            <!-- 🔥 CAMBIA ESTE TEXTO -->
+            Sistema creado por: JSDesign
+
+            <br>
+
+            <!-- 🔥 CAMBIA ESTE TEXTO -->
+            © 2026 - Todos los derechos reservados
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
