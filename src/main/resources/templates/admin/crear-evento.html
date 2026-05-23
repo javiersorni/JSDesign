@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Evento</title>
+
+    <!-- TU CSS GLOBAL -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <div class="sidebar-title">
+            🍽️ Cena Popular
+        </div>
+
+        <a th:href="@{/admin/dashboard}">Dashboard</a>
+        <a th:href="@{/admin/eventos/nuevo}">Crear Evento</a>
+        <a th:href="@{/admin/eventos}">Listar Eventos</a>
+        <!-- ESPACIADOR -->
+        <div style="margin-top: auto;"></div>
+
+        <!-- LOGOUT ABAJO -->
+        <form th:action="@{/logout}" method="post" style="padding: 10px 20px;">
+            <button class="btn" style="width:100%;">
+                Cerrar sesión
+            </button>
+        </form>
+    </div>
+
+    </div>
+
+    <!-- MAIN -->
+    <div class="main-content">
+
+        <h1>Crear Evento</h1>
+
+        <div class="card-box">
+
+            <form th:action="@{/admin/eventos}" method="post">
+
+                <label>Nombre</label>
+                <input type="text" name="nombre">
+
+                <label>Fecha</label>
+                <input type="date" name="fechaEvento">
+
+                <label>Cantidad de mesas</label>
+                <input type="number" name="cantidadMesas">
+
+                <button type="submit">
+                    Crear evento
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

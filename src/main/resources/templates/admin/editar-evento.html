@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Evento</title>
+
+    <!-- CSS GLOBAL -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <div class="sidebar-title">
+            🍽️ Cena Popular
+        </div>
+
+        <a th:href="@{/admin/dashboard}">Dashboard</a>
+        <a th:href="@{/admin/eventos/nuevo}">Crear Evento</a>
+        <a th:href="@{/admin/eventos}">Listar Eventos</a>
+
+    </div>
+
+    <!-- MAIN -->
+    <div class="main-content">
+
+        <h1>Editar Evento</h1>
+
+        <div class="card">
+
+            <form th:action="@{/admin/eventos/actualizar/{id}(id=${evento.id})}" method="post">
+
+                <!-- NOMBRE -->
+                <div>
+                    <label>Nombre del Evento</label>
+                    <input type="text" name="nombre" class="form-control" th:value="${evento.nombre}" required>
+                </div>
+
+                <!-- FECHA -->
+                <div>
+                    <label>Fecha del Evento</label>
+                    <input type="date" name="fechaEvento" class="form-control" th:value="${evento.fechaEvento}"
+                        required>
+                </div>
+
+                <!-- MESAS -->
+                <div>
+                    <label>Cantidad de Mesas</label>
+                    <input type="number" name="cantidadMesas" class="form-control" min="1"
+                        th:value="${evento.cantidadMesas}" required>
+                </div>
+
+                <!-- BOTÓN -->
+                <button class="btn" type="submit">
+                    Guardar Cambios
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
