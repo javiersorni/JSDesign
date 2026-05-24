@@ -31,7 +31,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 18px 50px;
-    background: #e8dfd1;
+    background: #7a9e9f;
     border-bottom: 1px solid #ddd3c2;
 }
 
@@ -54,7 +54,7 @@ body {
 .nav a {
     margin-left: 18px;
     text-decoration: none;
-    color: #4a4a4a;
+    color: #ffffff;
     transition: 0.2s;
 }
 
@@ -148,7 +148,7 @@ textarea {
     text-align: center;
     padding: 30px;
     margin-top: auto;
-    background: #e8dfd1;
+    background: #7a9e9f;
     border-top: 1px solid #ddd3c2;
 }
 
