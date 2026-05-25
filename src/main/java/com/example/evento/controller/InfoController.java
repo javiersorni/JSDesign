@@ -14,5 +14,15 @@ public class InfoController {
     @GetMapping("/info/compra")
     public String compra(){
         return "info/comprar";
-    } 
+    }
+
+    @GetMapping("/info/en/services")
+    public String service(){
+        return "info/servicios-ingles";
+    }
+
+    @GetMapping("/info/en/buy")
+    public String buy(){
+        return "info/comprar-ingles";
+    }
 }
