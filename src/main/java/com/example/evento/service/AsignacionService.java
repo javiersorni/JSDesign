@@ -44,7 +44,6 @@ public class AsignacionService {
 
             if (restantes <= 0) break;
 
-            // 🔥 SOLO USAR MESAS LIBRES
             if (!"LIBRE".equalsIgnoreCase(mesa.getEstado())) {
                 continue;
             }
@@ -60,7 +59,6 @@ public class AsignacionService {
 
             repo.save(a);
 
-            // 🔥 IMPORTANTE: marcar mesa como ocupada
             mesa.setEstado("OCUPADA");
             mesaRepository.save(mesa);
 

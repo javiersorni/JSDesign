@@ -10,7 +10,6 @@
 
 <body>
 
-    <!-- SIDEBAR (opcional si ya lo usas globalmente) -->
     <div class="sidebar">
 
         <div class="sidebar-title">
@@ -23,7 +22,6 @@
 
     </div>
 
-    <!-- MAIN -->
     <div class="main-content">
 
         <h1>Asignar Mesa</h1>
@@ -46,7 +44,6 @@
 
             <form th:action="@{/admin/grupos/asignar/{id}(id=${grupo.id})}" method="post">
 
-                <!-- MESA -->
                 <label>Mesa disponible</label>
 
                 <select name="mesaId" required>
@@ -56,7 +53,6 @@
                     </option>
                 </select>
 
-                <!-- PERSONAS -->
                 <label>Personas a asignar</label>
 
                 <input type="number"

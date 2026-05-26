@@ -6,13 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin - Cena Popular</title>
 
-    <!-- TU CSS GLOBAL -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 
-    <!-- SIDEBAR -->
     <div class="sidebar">
 
         <div class="sidebar-title">
@@ -22,10 +20,9 @@
         <a th:href="@{/admin/dashboard}">Dashboard</a>
         <a th:href="@{/admin/eventos/nuevo}">Crear Evento</a>
         <a th:href="@{/admin/eventos}">Listar Eventos</a>
-        <!-- ESPACIADOR -->
+
         <div style="margin-top: auto;"></div>
 
-        <!-- LOGOUT ABAJO -->
         <form th:action="@{/logout}" method="post" style="padding: 10px 20px;">
             <button class="btn" style="width:100%;">
                 Cerrar sesión
@@ -33,10 +30,8 @@
         </form>
     </div>
 
-    <!-- MAIN -->
     <div class="main-content">
 
-        <!-- TOPBAR -->
         <div class="card">
 
             <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
@@ -54,12 +49,10 @@
 
         </div>
 
-        <!-- CARDS GRID -->
         <div class="container" style="margin-top:20px;">
 
             <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;">
 
-                <!-- CARD 1 -->
                 <div class="card">
                     <h3>Crear Evento</h3>
                     <p>Crea nuevos eventos y genera automáticamente todas las mesas.</p>
@@ -68,7 +61,6 @@
                     </a>
                 </div>
 
-                <!-- CARD 2 -->
                 <div class="card">
                     <h3>Listado de Eventos</h3>
                     <p>Consulta eventos, mesas y gestión completa.</p>
