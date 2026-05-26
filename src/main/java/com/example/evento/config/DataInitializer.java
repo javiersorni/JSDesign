@@ -24,7 +24,6 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-        // Verifica si ya existe admin
         if (usuarioRepository.findByUsername("admin") == null) {
 
             Usuario admin = new Usuario();
@@ -33,7 +32,6 @@ public class DataInitializer implements CommandLineRunner {
 
             admin.setUsername("admin");
 
-            // password: admin123
             admin.setPassword(
                     passwordEncoder.encode("admin123")
             );

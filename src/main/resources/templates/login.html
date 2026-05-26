@@ -17,12 +17,10 @@
         <div class="title">Cena Popular</div>
         <div class="subtitle">Panel de administración</div>
 
-        <!-- ERROR LOGIN -->
         <div th:if="${param.error}" class="alert alert-error">
             Usuario o contraseña incorrectos
         </div>
 
-        <!-- LOGOUT -->
         <div th:if="${param.logout}" class="alert alert-success">
             Sesión cerrada correctamente
         </div>
@@ -39,15 +37,12 @@
 
         </form>
 
-        <!-- FOOTER EDITABLE -->
         <div class="footer">
 
-            <!-- 🔥 CAMBIA ESTE TEXTO -->
             Sistema creado por: JSDesign
 
             <br>
 
-            <!-- 🔥 CAMBIA ESTE TEXTO -->
             © 2026 - Todos los derechos reservados
 
         </div>

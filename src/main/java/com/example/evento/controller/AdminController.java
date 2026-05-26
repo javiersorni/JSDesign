@@ -18,9 +18,6 @@ public class AdminController {
         this.eventoRepository = eventoRepository;
     }
 
-    /**
-     * DASHBOARD PRINCIPAL
-     */
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
 

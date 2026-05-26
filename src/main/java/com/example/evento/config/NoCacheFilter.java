@@ -30,7 +30,6 @@ public class NoCacheFilter implements Filter {
 
         String uri = httpRequest.getRequestURI();
 
-        // SOLO evitar cache en admin
         if (uri.startsWith("/admin")) {
 
             httpResponse.setHeader(

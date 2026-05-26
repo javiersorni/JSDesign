@@ -6,13 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Grupo</title>
 
-    <!-- CSS GLOBAL -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 
-    <!-- SIDEBAR -->
     <div class="sidebar">
 
         <div class="sidebar-title">
@@ -22,10 +20,9 @@
         <a th:href="@{/admin/dashboard}">Dashboard</a>
         <a th:href="@{/admin/eventos/nuevo}">Crear Evento</a>
         <a th:href="@{/admin/eventos}">Listar Eventos</a>
-        <!-- ESPACIADOR -->
+
         <div style="margin-top: auto;"></div>
 
-        <!-- LOGOUT ABAJO -->
         <form th:action="@{/logout}" method="post" style="padding: 10px 20px;">
             <button class="btn" style="width:100%;">
                 Cerrar sesión
@@ -33,7 +30,6 @@
         </form>
     </div>
 
-    <!-- MAIN -->
     <div class="main-content">
 
         <h1>Crear Grupo</h1>
@@ -51,11 +47,9 @@
 
             <form th:action="@{/admin/grupos/guardar/{id}(id=${evento.id})}" method="post">
 
-                <!-- NOMBRE CONTACTO -->
                 <label>Nombre contacto</label>
                 <input type="text" name="nombreContacto" required>
 
-                <!-- PERSONAS -->
                 <label>Número de personas</label>
                 <input type="number" name="numeroPersonas" min="1" max="10" required>
 

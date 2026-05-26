@@ -138,10 +138,6 @@ public class EventoController {
         return "redirect:/admin/eventos";
     }
 
-    // =========================
-    // HELPERS PRIVADOS
-    // =========================
-
     private Evento obtenerEvento(Long id) {
         return eventoRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Evento no encontrado"));
@@ -164,7 +160,6 @@ public class EventoController {
 
         int totalActual = actuales.size();
 
-        // 🔼 si hay más mesas nuevas, crear
         if (nuevasMesas > totalActual) {
             for (int i = totalActual + 1; i <= nuevasMesas; i++) {
                 Mesa mesa = new Mesa();
@@ -176,7 +171,6 @@ public class EventoController {
             }
         }
 
-        // 🔽 si hay menos mesas, eliminar sobrantes
         if (nuevasMesas < totalActual) {
             List<Mesa> aEliminar = actuales.subList(nuevasMesas, totalActual);
             mesaRepository.deleteAll(aEliminar);
