@@ -84,7 +84,7 @@
 	</dependencies>
 
 	<build>
-		<filename>evento</filename>
+		<finalName>evento</finalName>
 
 		<plugins>
 			<plugin>
